@@ -1,5 +1,7 @@
 # src/dominio/departamento.py
 
+#inicio segunda clase
+
 from dominio.empleado import Empleado
     
 class Departamento:
@@ -18,7 +20,7 @@ class Departamento:
     @property
     def empleados(self) -> tuple:
         return tuple(self._empleados)
-
+    
     def cantidad_empleados(self) -> int:
         return len(self._empleados)
          

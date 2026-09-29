@@ -7,6 +7,8 @@ class Empleado:
     def mostrar_datos(self) -> str:
         return f"{self.nombre} - {self.correo}"
 
+# inicio de segunda clase
+
 class Empleado:
     def calcular_pago(self) -> float:
         raise NotImplementedError

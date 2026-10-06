@@ -1,11 +1,17 @@
 #src/dominio/empleado.py
 class Empleado:
-    def __init__(self, nombre: str, correo: str):
+    def __init__(self, idEmpleado: str, nombre: str, correo: str, direccion: str, telefono: str, fechaContrato: str, salario: str, rol: str,):
+        self.idEmpleado = idEmpleado
         self.nombre = nombre
         self.correo = correo
+        self.direccion = direccion
+        self.telefono = telefono
+        self.fechaContrato = fechaContrato
+        self.salario = salario
+        self.rol = rol
     
     def mostrar_datos(self) -> str:
-        return f"{self.nombre} - {self.correo}"
+        return f"{self.idEmpleado} - {self.nombre} - {self.correo} - {self.direccion} - {self.telefono} - {self.fechaContrato} - {self.salario} - {self.rol}"
 
 # inicio de segunda clase
 

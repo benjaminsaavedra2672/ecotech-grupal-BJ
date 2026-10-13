@@ -1,0 +1,2 @@
+# Necesario solo si DB_ENGINE=mysql
+mysql-connector-python>=8.0

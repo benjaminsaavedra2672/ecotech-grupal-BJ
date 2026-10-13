@@ -1,21 +1,32 @@
+# Validación del uso de Inteligencia Artificial
+
 ## 1. Uso de la IA
 
-Durante el desarrollo del proyecto utilicé la inteligencia artificial como una herramienta de apoyo para resolver dudas, revisar partes del código y comprender mejor la estructura de la aplicación en Python
+Utilizamos la inteligencia artificial como apoyo para resolver dudas puntuales, revisar la organización de algunos archivos y detectar aspectos que convenía mejorarla herramienta no reemplaza la revisión del código ni las pruebas del programa
 
-la IA se utilizó como ayuda durante el desarrollo, pero fue necesario revisar el código y comprobar que funcionara de acuerdo con los requerimientos del proyecto
+## 2. Criterios de revisión
 
-## 2. Revisión del código
+Revisamos que las clases de dominio estuvieran separadas de la persistencia y de los menús, que las consultas enviaran los datos mediante parámetros, que se mantuvieran las relaciones entre las tablas y que las contraseñas no se guardaran como texto plano.
 
-Se revisó que las clases estuvieran organizadas de acuerdo con el modelo del sistema y que existiera una separación entre las clases de dominio, la conexión a la base de datos y las operaciones de persistencia también se revisaron las operaciones para administrar empleados, departamentos, proyectos y registros de tiempo, junto con el manejo de errores y las validaciones de datos
+## 3. Cambios realizados después de la revisión
 
-## 3. Pruebas realizadas
+- Separaramos las opciones de consola en archivos dentro de src/menus/ para mantener main.py como punto de entrada y coordinación
+- Añadímos la selección del motor de base de datos mediante DB_ENGINE en el archivo .env.
+- Mantuvimos SQLite como configuración inicial y añadí la opción de conexión a MySQL con mysql-connector-python
+- Añadímos la creación de tablas para ambos motores y un script para crear la base de datos MySQL.
+- Incorporamos opciones de búsqueda y actualización en el menú de registros de tiempo.
 
-Se realizaron pruebas para comprobar que los archivos Python no presentaran errores de sintaxis y que las pruebas automáticas incluidas en el proyecto se ejecutaran correctamente además, se debe comprobar el funcionamiento de la aplicación desde main.py, verificando el menú principal, el ingreso de datos y las operaciones disponibles de cada módulo
+## 4. Pruebas realizadas durante la revisión
 
-## 4. Decisiones tomadas
+- La compilación de los archivos Python terminó sin errores.
+- Las seis pruebas automáticas de dominio terminaron con resultado OK.
+- Se realizó una prueba de integración con SQLite para crear, consultar, actualizar y eliminar datos relacionados de empleados, departamentos, proyectos y registros de tiempo.
+- Se inició main.py con SQLite y se comprobó que muestra el menú principal y permite salir correctamente.
 
-Se mantuvo el código que era coherente con los objetivos del proyecto y se realizaron ajustes cuando fue necesario mejorar su organización o funcionamiento la conexión a la base de datos se mantuvo con SQLite, ya que permite almacenar los datos localmente sin necesitar un servidor externo
+La conexión a un servidor MySQL real  se verificó cambiando y editando el contenido de .env y conectandolo a wampserver
 
-## 5. Conclusión
+## 5. Decisiones tomadas
 
-La inteligencia artificial fue utilizada como apoyo durante el desarrollo, principalmente para resolver dudas y revisar aspectos de la implementaciónla validación del proyecto se complementó con pruebas del código y de la aplicación, con el objetivo de comprobar su funcionamiento y mantener la coherencia con los requerimientos de la evaluación
+Se mantuvo SQLite como opción predeterminada porque permite ejecutar el sistema localmente sin configurar un servidor se añadió la compatibilidad de código con MySQL para poder seleccionarlo mediante .env cuando exista una instancia disponible
+
+Las sugerencias se utilizaron como apoyo y se revisaron mediante compilación y pruebas

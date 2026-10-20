@@ -1,4 +1,5 @@
 from persistencia.crear_bd import crear_tablas
+from persistencia.semilla_bd import cargar_semilla
 from persistencia.conexion import motor_actual
 from .menu_empleado import menu_empleados
 from .menu_departamento import menu_departamentos
@@ -9,6 +10,7 @@ from .menu_registro_tiempo import menu_registros
 def menu_principal():
     try:
         crear_tablas()
+        cargar_semilla()
         print(f"Base de datos conectada: {motor_actual().upper()}")
     except Exception as exc:
         print(f"No se pudo inicializar la base de datos: {exc}")

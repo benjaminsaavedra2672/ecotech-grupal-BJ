@@ -25,3 +25,16 @@ python src\main.py
    python src\main.py
 Para volver a SQLite, cambia `DB_ENGINE=sqlite` y configura `DB_NAME=ecotech.db`.
 
+
+
+## Semilla de datos de demostración
+
+Desde la carpeta `src`, con el mismo motor configurado en `.env`, ejecutar:
+
+```powershell
+python -m persistencia.crear_bd
+python -m persistencia.semilla_bd
+python -m persistencia.semilla_bd
+```
+
+La semilla agrega departamentos, empleados (incluye perfiles con rol `Gerente`), proyectos, asignaciones y registros de tiempo. Está diseñada para poder repetirse sin duplicar los mismos datos de demostración. Revisa `docs/revision_critica_semilla.md` para la revisión crítica y la tabla que debes completar con las salidas reales de las dos ejecuciones.

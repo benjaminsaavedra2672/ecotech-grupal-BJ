@@ -5,8 +5,11 @@ from .conexion import abrir_conexion, motor_actual
 ESQUEMA_SQLITE = """
 CREATE TABLE IF NOT EXISTS usuario (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
+    empleado_id INTEGER NULL,
     username TEXT NOT NULL UNIQUE,
-    password_hash TEXT NOT NULL
+    password_hash TEXT NOT NULL,
+    FOREIGN KEY (empleado_id)
+        REFERENCES empleado(id_empleado)
 );
 
 CREATE TABLE IF NOT EXISTS departamento (
@@ -72,11 +75,15 @@ CREATE TABLE IF NOT EXISTS registro_tiempo (
 ESQUEMA_MYSQL = """
 CREATE TABLE IF NOT EXISTS usuario (
     id INT NOT NULL AUTO_INCREMENT,
-    username VARCHAR(100) NOT NULL,
+    empleado_id INT NULL,
+    username VARCHAR(100) NOT NULL UNIQUE,
     password_hash VARCHAR(255) NOT NULL,
     PRIMARY KEY (id),
-    UNIQUE KEY uq_usuario_username (username)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+    CONSTRAINT fk_usuario_empleado
+        FOREIGN KEY (empleado_id)
+        REFERENCES empleado(id_empleado)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4
+  COLLATE=utf8mb4_unicode_ci;
 
 CREATE TABLE IF NOT EXISTS departamento (
     id_depto INT NOT NULL AUTO_INCREMENT,
